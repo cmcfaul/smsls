@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+#$Id$
 use strict;
 use constant DEBUGGING => 0;
 use constant HOME => "/home/cmcfaul/Documents/"; #these should change
@@ -18,6 +19,7 @@ foreach (@range) {
 }
 @pixels = @cell_center; #to use one point for each cell
 
+print "Created by $Id$\n ";
 my $files = 0;
 my @offset = (0);
 while(<>) {

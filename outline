@@ -1,0 +1,10 @@
+outline for smsls.py
+
+foreach(outfile)
+	open file
+	while(!EOF)
+		read line and verify
+		break up line into outputs
+		write to output files
+
+

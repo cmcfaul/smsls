@@ -1,5 +1,10 @@
 #!/usr/bin/perl -w
 #$Id$
+#usage: smsls < [input file(s)] > [output file]
+#this reads one or more smsls light scattering output files, keeps the 
+#timestamp and one pixel for each smsls cell, and writes all of that out to 
+#a single file for easier analysis.
+
 use strict;
 use constant DEBUGGING => 0;
 use constant HOME => "/home/cmcfaul/Documents/"; #these should change

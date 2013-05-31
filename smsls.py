@@ -1,5 +1,6 @@
 #!/usr/bin/python
 #$Id$
+from numpy import *
 
 datadir = 'C:\\Users\\cmcfaul\\Documents\\Data\\'
 datedir = raw_input('Enter the date of the data (in yyyy-mm-dd) ')
@@ -26,7 +27,7 @@ tempfile.readline() #sample count
 tempfile.readline() #device serial number
 tempfile.readline() #column titles
 
-datafile = open(datadir + datedir + '\\' + basename + '_01.txt')
+datafile = open(datadir + datedir + '\\' + basename + '.txt')
 datafile.readline() #sentinal line
 
 header = datafile.readline() #column titles

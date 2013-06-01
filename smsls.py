@@ -43,7 +43,7 @@ for line in iter(datafile):
 	temp = data.split(',')
 	for i in arange(8):
 		outFile[i].write(str(ls[0]) + ', ' , )
-		outFile[i].write(str(temp[i+2]) + ', ' , )
+		outFile[i].write(str(temp[i+2].rstrip()) + ', ' , )
 		for idx in pixels[:,i]:
 			outFile[i].write(str(ls[idx+1]) + ', ' , )
 		outFile[i].write('\n')

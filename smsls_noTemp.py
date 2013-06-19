@@ -36,7 +36,7 @@ for i in arange(8):
 	outFile[i].write('Time (s), ' , )
 	for idx in pixels[:,i]:
 		outFile[i].write( str(column[idx+1]) + ', ', )
-	outFile[i].write('\n')
+	outFile[i].write('\r\n')
 for line in iter(datafile):
 	ls = line.split('\t')
 	#data = tempfile.readline()
@@ -46,7 +46,7 @@ for line in iter(datafile):
 		#outFile[i].write(str(temp[i+2].rstrip()) + ', ' , )
 		for idx in pixels[:,i]:
 			outFile[i].write(str(ls[idx+1]) + ', ' , )
-		outFile[i].write('\n')
+		outFile[i].write('\r\n')
 for i in arange(8):
 	outFile[i].close()
 	

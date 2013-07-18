@@ -90,3 +90,7 @@ def writeOut(baseName, tempfile, pixels, outFile):
 		tempfile.close()
 	datafile.close()
 	return
+
+if __name__ == '__main__':
+	import sys
+	main(sys.argv[1], sys.argv[2])

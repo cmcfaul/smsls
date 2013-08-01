@@ -11,24 +11,24 @@ def main(*arg):
         baseName = raw_input('What is the basename of the file? ') 
         mode = raw_input('Do you want peaks or rolloff? ')
         haveTemperatures = raw_input('Do you have a temperature file? ')
-    outFile = createOutFiles(baseName)
-    pixels = getWhichPixels(mode)
+    outFile = create_out_files(baseName)
+    pixels = get_which_pixels(mode)
     if haveTemperatures in ['1', 'y', 'yes', 'Yes', 'YES', 'True']:
         tempFile = baseName + '_temperatures.txt'
-        f, header, column = readTempHeader(tempFile)
-        writeOut(baseName, f, pixels, outFile)
+        f, header, column = read_temp_header(tempFile)
+        write_out(baseName, f, pixels, outFile)
     else:
-        writeOut(baseName, False, pixels, outFile)
+        write_out(baseName, False, pixels, outFile)
     return
 
-def createOutFiles(baseName):
+def create_out_files(baseName):
     outFile = []
     for i in range(8):
         f = open(baseName+'_c'+str(i+1)+'.dat', 'w')
         outFile.append(f)
     return outFile
 
-def getWhichPixels(mode):
+def get_which_pixels(mode):
     #setup the array to hold the pixels we want to keep
     cell_center = np.array ([20, 89, 155, 221, 285, 351, 418, 486])
     if mode == 'peaks':
@@ -40,7 +40,7 @@ def getWhichPixels(mode):
         pixels = rangex+cellx
     return pixels
 
-def readTempHeader(tempFile):
+def read_temp_header(tempFile):
     f = open(tempFile, 'r')
     header = {}
     for i in range(6):
@@ -54,7 +54,7 @@ def readTempHeader(tempFile):
     #leave f open, and return a file object
     return f, header, column
 
-def writeOut(baseName, tempfile, pixels, outFile):
+def write_out(baseName, tempfile, pixels, outFile):
     datafile = open(baseName+'.txt')
     datafile.readline() #sentinal line
     header = datafile.readline() #column titles

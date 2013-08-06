@@ -15,7 +15,8 @@ def main(*arg):
     pixels = get_which_pixels(mode)
     if haveTemperatures in ['1', 'y', 'yes', 'Yes', 'YES', 'True']:
         tempFile = baseName + '_temperatures.txt'
-        f, header, column = read_temp_header(tempFile)
+        f = open(tempFile, 'r')
+        header, column = read_temp_header(f)
         write_out(baseName, f, pixels, outFile)
     else:
         write_out(baseName, False, pixels, outFile)
@@ -40,8 +41,7 @@ def get_which_pixels(mode):
         pixels = rangex+cellx
     return pixels
 
-def read_temp_header(tempFile):
-    f = open(tempFile, 'r')
+def read_temp_header(f):
     header = {}
     for i in range(6):
         line = f.readline() 
@@ -52,7 +52,7 @@ def read_temp_header(tempFile):
     points = int(header['Sample Count'])
     column = f.readline().split(',') #column titles
     #leave f open, and return a file object
-    return f, header, column
+    return header, column
 
 def write_out(baseName, tempfile, pixels, outFile):
     datafile = open(baseName+'.txt')

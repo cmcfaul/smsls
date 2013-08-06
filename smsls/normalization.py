@@ -53,3 +53,7 @@ def readData(f, column, points):
     for i in range(points):
         data[i,:] = f.readline().split('\t')
     return data
+
+if __name__ == '__main__':
+    import sys
+    makeNorm(sys.argv[1])

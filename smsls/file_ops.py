@@ -47,8 +47,8 @@ def read_temp_header(f):
         line = f.readline() 
         param, value = line.split(':')
         header[param] = value
-    period = int(header['Sampling Interval'])
-    freq = int(header['Sampling Rate'])
+    period = float(header['Sampling Interval'])
+    freq = float(header['Sampling Rate'])
     points = int(header['Sample Count'])
     column = f.readline().split(',') #column titles
     #leave f open, and return a file object

@@ -77,7 +77,7 @@ def write_out(baseName, tempfile, pixels, outFile):
         for i in range(8):
             outFile[i].write(str(ls[0]) + ', ' , )
             if tempfile:
-                outFile[i].write(str(temperature[i+2]) + ', ' , )
+                outFile[i].write(str(temperature[i+3]) + ', ' , )
             if pixels.shape[0] != 8:
                 for idx in pixels[:,i]:
                     outFile[i].write(str(ls[idx+1]) + ', ' , )

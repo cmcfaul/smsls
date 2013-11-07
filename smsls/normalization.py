@@ -1,10 +1,10 @@
 #!/usr/bin/python
 #$Id$
 import numpy as np
+import importlib
 
 def makeNorm(confFile):
-    conf = __import__(confFile)
-    reload(conf)
+    conf = importlib.import_module(confFile)
     f = open(conf.dataFile, 'r')
     f.readline() #sentinal line
     header = f.readline()
